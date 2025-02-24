@@ -45,6 +45,8 @@ dependencies:
   
   #? Logger
   logger: ^2.5.0
+  gap: ^3.0.1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   #? Generator
