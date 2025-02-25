@@ -19,7 +19,7 @@ dependencies:
   flutter_svg: ^2.0.17
   shimmer: ^3.0.0
   skeletonizer: ^1.4.3
-  toastification: ^3.0.0
+  toastification: ^2.0.0
   
   #? Networking
   dio: ^5.8.0+1
@@ -47,10 +47,17 @@ dependencies:
   logger: ^2.5.0
   gap: ^3.0.1
   google_fonts: ^6.2.1
+  json_annotation: ^4.9.0
+  json_serializable: ^6.9.0
+  equatable: ^2.0.7
+  regexpattern: ^2.6.0
+  
 
 dev_dependencies:
   #? Generator
-  build_runner: ^2.4.13
+  #! flutter packages pub run build_runner build
+  #! flutter pub run build_runner build --delete-conflicting-outputs
+  build_runner: ^2.4.13 
   injectable_generator: ^2.6.2
   retrofit_generator: ^9.1.5
   

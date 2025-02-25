@@ -12,17 +12,17 @@ class AppDialog {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: Theme.of(context).canvasColor,
           content: Row(
             children: [
               CircularProgressIndicator(
-                color: Theme.of(context).hintColor,
+                color: Theme.of(context).primaryColor,
               ),
               Gap(10.w),
               Text(
                 message,
                 style: AppTextStyles.size22CP.copyWith(
-                  color: Theme.of(context).canvasColor,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],
