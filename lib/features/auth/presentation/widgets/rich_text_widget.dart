@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:online_exams/core/utils/app_colors.dart';
+import 'package:online_exams/core/utils/app_text_style.dart';
+
+class RichTextWidget extends StatelessWidget {
+  const RichTextWidget({
+    super.key,
+    required this.text,
+    required this.subText,
+    required this.onTap,
+  });
+  final String text;
+  final String subText;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: text,
+            style: AppTextStyles.size16CP,
+          ),
+          WidgetSpan(
+            child: GestureDetector(
+              onTap: onTap,
+              child: Text(
+                subText,
+                style: AppTextStyles.size16CP.copyWith(
+                  color: AppColors.primaryColor,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
