@@ -12,6 +12,8 @@ class AuthResponse {
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) =>
       _$AuthResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
 }
 
 @JsonSerializable()
@@ -39,4 +41,6 @@ class AuthUser {
 
   factory AuthUser.fromJson(Map<String, dynamic> json) =>
       _$AuthUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AuthUserToJson(this);
 }
