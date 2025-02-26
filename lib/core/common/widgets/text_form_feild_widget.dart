@@ -69,7 +69,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           fontSize: 16,
         ),
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 17),
         enabledBorder:
             outlineInputBorder(color: Colors.black, radius: 8.r, width: 1),
         focusedBorder:

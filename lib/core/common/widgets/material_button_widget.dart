@@ -23,7 +23,7 @@ class MaterialButtonWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(40.r),
       ),
       child: Text(
-        "SignUp",
+        title,
         style: AppTextStyles.size16CP.copyWith(
           color: AppColors.scaffoldColor,
         ),

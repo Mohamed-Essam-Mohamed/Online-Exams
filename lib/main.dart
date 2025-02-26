@@ -7,8 +7,8 @@ import 'package:online_exams/core/api_helper/api_result/api_result.dart';
 import 'package:online_exams/core/app/bloc_observer.dart';
 import 'package:online_exams/core/app/di/service_locator.dart';
 import 'package:online_exams/features/auth/data/api/api_auth.dart';
-import 'package:online_exams/features/auth/data/models/request/login_request.dart';
-import 'package:online_exams/features/auth/data/models/response/login_response.dart';
+import 'package:online_exams/features/auth/data/models/request/register_request.dart';
+import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/online_exams.dart';
 import 'package:regexpattern/regexpattern.dart';
 
