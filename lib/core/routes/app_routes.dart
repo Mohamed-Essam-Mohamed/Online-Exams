@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exams/core/app/di/service_locator.dart';
 import 'package:online_exams/core/routes/animation_routes.dart';
+import 'package:online_exams/features/auth/presentation/blocs/login/login_cubit.dart';
 import 'package:online_exams/features/auth/presentation/blocs/register/register_cubit.dart';
 import 'package:online_exams/features/auth/presentation/pages/email_verification_screen.dart';
 import 'package:online_exams/features/auth/presentation/pages/forget_pass_screen.dart';
@@ -15,7 +16,12 @@ class AppRoutes {
     final arg = settings.arguments;
     switch (settings.name) {
       case LoginScreen.routeName:
-        return AnimationRoute(page: const LoginScreen());
+        return AnimationRoute(
+          page: BlocProvider(
+            create: (context) => getIt.get<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
       case RegisterScreen.routeName:
         return AnimationRoute(
           page: BlocProvider<RegisterCubit>(

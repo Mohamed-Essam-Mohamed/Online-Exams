@@ -3,20 +3,19 @@ import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:online_exams/core/api_helper/api_result/api_result.dart';
 import 'package:online_exams/core/enums/status.dart';
-import 'package:online_exams/features/auth/data/models/request/register_request.dart';
+import 'package:online_exams/features/auth/data/models/request/login_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
-import 'package:online_exams/features/auth/domain/use_cases/register_use_case.dart';
+import 'package:online_exams/features/auth/domain/use_cases/login_use_case.dart';
 
-part 'register_state.dart';
+part 'login_state.dart';
 
 @injectable
-class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit(this.registerUseCase) : super(const RegisterState());
-  RegisterUseCase registerUseCase;
-
-  Future<void> register(RegisterRequest registerRequest) async {
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit(this.loginUseCase) : super(const LoginState());
+  LoginUseCase loginUseCase;
+  Future<void> login(LoginRequest loginRequest) async {
     emit(state.copyWith(status: Status.loading));
-    final result = await registerUseCase.call(registerRequest);
+    final result = await loginUseCase.call(loginRequest);
     switch (result) {
       case Success<AuthResponse>():
         emit(state.copyWith(status: Status.success));
