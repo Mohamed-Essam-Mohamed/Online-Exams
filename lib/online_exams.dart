@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exams/core/routes/app_routes.dart';
 import 'package:online_exams/core/utils/app_light_theme.dart';
 import 'package:online_exams/features/auth/presentation/pages/login_screen.dart';
-import 'package:online_exams/features/auth/presentation/pages/register_screen.dart';
 
 class OnlineExams extends StatelessWidget {
   const OnlineExams({super.key});
@@ -18,7 +17,7 @@ class OnlineExams extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppLightTheme.theme,
         themeMode: ThemeMode.light,
-        initialRoute: RegisterScreen.routeName,
+        initialRoute: LoginScreen.routeName,
         onGenerateRoute: AppRoutes.onGenerateRoute,
       ),
     );
