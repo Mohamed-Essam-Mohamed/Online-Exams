@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesUtils {
@@ -31,23 +32,23 @@ class SharedPreferencesUtils {
   }
 
   // Save user data to SharedPreferences
-  // static Future<void> savePref(UserDataResponse user) async {
-  //   String userJson = jsonEncode(user.toJson());
-  //   await sharedPreferences.setString('user_data', userJson);
-  // }
+  static Future<void> saveDataUserPref(AuthResponse user) async {
+    String userJson = jsonEncode(user.toJson());
+    await sharedPreferences.setString('user_data', userJson);
+  }
 
-  // // Retrieve user data from SharedPreferences
-  // static Future<UserDataResponse?> getPref() async {
-  //   String? userJson = sharedPreferences.getString('user_data');
-  //   if (userJson != null) {
-  //     Map<String, dynamic> userMap = jsonDecode(userJson);
-  //     return UserDataResponse.fromJson(userMap);
-  //   }
-  //   return null;
-  // }
+  // Retrieve user data from SharedPreferences
+  static Future<AuthResponse?> getDataUserPref() async {
+    String? userJson = sharedPreferences.getString('user_data');
+    if (userJson != null) {
+      Map<String, dynamic> userMap = jsonDecode(userJson);
+      return AuthResponse.fromJson(userMap);
+    }
+    return null;
+  }
 
   // Clear user data from SharedPreferences
-  static Future<void> clearPref() async {
+  static Future<void> clearDataUserPref() async {
     await sharedPreferences.remove('user_data');
   }
 }
