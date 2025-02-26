@@ -14,4 +14,9 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.blackColor,
   );
+  static TextStyle size14CP = GoogleFonts.inter(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.blackColor,
+  );
 }

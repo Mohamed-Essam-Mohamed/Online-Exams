@@ -8,6 +8,7 @@ import 'package:online_exams/core/constant/api_const.dart';
 import 'package:online_exams/features/auth/data/models/request/login_request.dart';
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
+import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
 
 @lazySingleton
 class ApiAuth {
@@ -38,6 +39,22 @@ class ApiAuth {
         data: request.toJson(),
       );
       return Success(AuthResponse.fromJson(response));
+    } on ServerException catch (e) {
+      return Error(e.errorMessage.toString());
+    } on SocketException catch (e) {
+      return const Error("No Internet Connection");
+    } catch (e) {
+      return Error(e.toString());
+    }
+  }
+
+  Future<ApiResult<ForgotPasswordResponse>> forgotPassword(String email) async {
+    try {
+      final response = await apiConsumer.post(
+        ApiConst.forgetPassword,
+        data: {"email": email},
+      );
+      return Success(ForgotPasswordResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
     } on SocketException catch (e) {

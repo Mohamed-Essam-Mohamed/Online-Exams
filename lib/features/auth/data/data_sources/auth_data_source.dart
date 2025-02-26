@@ -4,6 +4,7 @@ import 'package:online_exams/features/auth/data/api/api_auth.dart';
 import 'package:online_exams/features/auth/data/models/request/login_request.dart';
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
+import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
 
 @injectable
 class AuthDataSource {
@@ -15,4 +16,8 @@ class AuthDataSource {
 
   Future<ApiResult<AuthResponse>> login(LoginRequest request) async =>
       await api.login(request);
+
+  Future<ApiResult<ForgotPasswordResponse>> forgotPassword(
+          String email) async =>
+      await api.forgotPassword(email);
 }
