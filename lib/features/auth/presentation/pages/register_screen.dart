@@ -9,8 +9,9 @@ import 'package:online_exams/core/common/widgets/text_form_feild_widget.dart';
 import 'package:online_exams/core/extensions/navigator_extention.dart';
 import 'package:online_exams/core/utils/app_dailog.dart';
 import 'package:online_exams/core/utils/app_toast.dart';
-import 'package:online_exams/features/auth/data/models/request/login_request.dart';
+import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/presentation/blocs/register/register_cubit.dart';
+import 'package:online_exams/features/auth/presentation/pages/login_screen.dart';
 import 'package:online_exams/features/auth/presentation/widgets/rich_text_widget.dart';
 import 'package:online_exams/navigation_bar/navigation_bar_screen.dart';
 import 'package:toastification/toastification.dart';
@@ -30,6 +31,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         title: const Text(
           "Sign Up",
+        ),
+        leading: const IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: null,
         ),
       ),
       body: SingleChildScrollView(
@@ -150,7 +155,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 RichTextWidget(
                   text: "Already have an account?  ",
                   subText: "Login",
-                  onTap: () {},
+                  onTap: () {
+                    context.pushNamed(LoginScreen.routeName);
+                  },
                 )
               ],
             ),
