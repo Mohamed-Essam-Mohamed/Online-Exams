@@ -32,9 +32,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: const Text(
           "Sign Up",
         ),
-        leading: const IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: null,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            context.pop();
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -156,7 +158,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: "Already have an account?  ",
                   subText: "Login",
                   onTap: () {
-                    context.pushNamed(LoginScreen.routeName);
+                    context.pop();
                   },
                 )
               ],

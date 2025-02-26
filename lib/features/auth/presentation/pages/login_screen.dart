@@ -12,6 +12,7 @@ import 'package:online_exams/core/utils/app_dailog.dart';
 import 'package:online_exams/core/utils/app_toast.dart';
 import 'package:online_exams/features/auth/data/models/request/login_request.dart';
 import 'package:online_exams/features/auth/presentation/blocs/login/login_cubit.dart';
+import 'package:online_exams/features/auth/presentation/pages/register_screen.dart';
 import 'package:online_exams/features/auth/presentation/widgets/rich_text_widget.dart';
 import 'package:online_exams/features/auth/presentation/widgets/section_remember_forget_wdiget.dart';
 import 'package:online_exams/navigation_bar/navigation_bar_screen.dart';
@@ -31,11 +32,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            context.pop();
-          },
+        leading: const IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: null,
         ),
       ),
       body: SingleChildScrollView(
@@ -100,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: "Don't have an account?  ",
                   subText: "Sign Up",
                   onTap: () {
-                    context.pop();
+                    context.pushNamed(RegisterScreen.routeName);
                   },
                 ),
               ],
