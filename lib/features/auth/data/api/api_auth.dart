@@ -5,6 +5,7 @@ import 'package:online_exams/core/api_helper/api_consumer/api_consumer.dart';
 import 'package:online_exams/core/api_helper/api_consumer/dio_consumer.dart';
 import 'package:online_exams/core/api_helper/api_result/api_result.dart';
 import 'package:online_exams/core/constant/api_const.dart';
+import 'package:online_exams/core/utils/app_shared_preference.dart';
 import 'package:online_exams/features/auth/data/models/request/login_request.dart';
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
@@ -22,6 +23,9 @@ class ApiAuth {
         ApiConst.register,
         data: request.toJson(),
       );
+      await SharedPreferencesUtils.saveDataUserPref(
+          AuthResponse.fromJson(response));
+
       return Success(AuthResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
@@ -38,6 +42,8 @@ class ApiAuth {
         ApiConst.login,
         data: request.toJson(),
       );
+      await SharedPreferencesUtils.saveDataUserPref(
+          AuthResponse.fromJson(response));
       return Success(AuthResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
@@ -54,6 +60,7 @@ class ApiAuth {
         ApiConst.forgetPassword,
         data: {"email": email},
       );
+
       return Success(ForgotPasswordResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());

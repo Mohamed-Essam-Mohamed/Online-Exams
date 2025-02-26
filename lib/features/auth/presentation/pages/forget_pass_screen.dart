@@ -12,7 +12,6 @@ import 'package:online_exams/core/utils/app_text_style.dart';
 import 'package:online_exams/core/utils/app_toast.dart';
 import 'package:online_exams/features/auth/presentation/blocs/forgetpassword/forget_password_cubit.dart';
 import 'package:online_exams/features/auth/presentation/pages/email_verification_screen.dart';
-import 'package:online_exams/navigation_bar/navigation_bar_screen.dart';
 import 'package:toastification/toastification.dart';
 
 class ForgetPassScreen extends StatefulWidget {
