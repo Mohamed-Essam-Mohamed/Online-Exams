@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -42,19 +43,20 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i423.ApiConsumer>(() => _i561.DioConsumer());
+    gh.lazySingleton<_i423.ApiConsumer>(
+        () => _i561.DioConsumer(gh<_i361.Dio>()));
     gh.lazySingleton<_i252.ApiAuth>(
         () => _i252.ApiAuth(gh<_i423.ApiConsumer>()));
     gh.factory<_i277.AuthDataSource>(
         () => _i277.AuthDataSource(gh<_i252.ApiAuth>()));
     gh.factory<_i234.AuthRepository>(
         () => _i713.AuthRepositoryImpl(gh<_i277.AuthDataSource>()));
-    gh.factory<_i99.RegisterUseCase>(
-        () => _i99.RegisterUseCase(gh<_i234.AuthRepository>()));
-    gh.factory<_i933.LoginUseCase>(
-        () => _i933.LoginUseCase(gh<_i234.AuthRepository>()));
     gh.factory<_i649.ForgetPasswordUseCase>(
         () => _i649.ForgetPasswordUseCase(gh<_i234.AuthRepository>()));
+    gh.factory<_i933.LoginUseCase>(
+        () => _i933.LoginUseCase(gh<_i234.AuthRepository>()));
+    gh.factory<_i99.RegisterUseCase>(
+        () => _i99.RegisterUseCase(gh<_i234.AuthRepository>()));
     gh.factory<_i392.RegisterCubit>(
         () => _i392.RegisterCubit(gh<_i99.RegisterUseCase>()));
     gh.factory<_i35.ForgetPasswordCubit>(

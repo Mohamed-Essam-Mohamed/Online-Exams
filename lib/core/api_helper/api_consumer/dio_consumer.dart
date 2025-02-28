@@ -6,8 +6,7 @@ import 'package:online_exams/core/constant/api_const.dart';
 @LazySingleton(as: ApiConsumer)
 class DioConsumer implements ApiConsumer {
   late Dio dio;
-  DioConsumer() {
-    dio = Dio();
+  DioConsumer(this.dio) {
     dio.options.baseUrl = ApiConst.baseUrl;
     dio.interceptors.add(LogInterceptor(
       request: true,

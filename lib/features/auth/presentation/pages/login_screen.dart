@@ -84,8 +84,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (formKey.currentState!.validate()) {
                       context.read<LoginCubit>().login(
                             LoginRequest(
-                              emailController.text,
-                              passwordController.text,
+                              email: emailController.text,
+                              password: passwordController.text,
                             ),
                           );
                     }
