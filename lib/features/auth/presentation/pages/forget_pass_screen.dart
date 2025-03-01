@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,15 +42,24 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
         child: Form(
           key: formKey,
           child: BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
+            listenWhen: (previous, current) {
+              return previous != current;
+            },
             listener: (context, state) {
-              if (state.isLoading) {
+              if (state.isSendEmailLoading) {
+                log("work loading");
                 AppDialog.showLoading(context: context, message: "Loading...");
               }
-              if (state.isSuccess) {
+              if (state.isSendEmailSuccess) {
+                log("work success");
                 context.pop();
-                context.pushNamed(EmailVerificationScreen.routeName);
+                context.pushNamed(
+                  EmailVerificationScreen.routeName,
+                  arguments: context.read<ForgetPasswordCubit>(),
+                );
               }
-              if (state.isError) {
+              if (state.isSendEmailError) {
+                log("work error");
                 context.pop();
                 AppToast.showToast(
                   context: context,
@@ -71,7 +82,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
                 Text(
                   "Please enter your email associated to your account",
                   style: AppTextStyles.size14CP.copyWith(
-                    color: AppColors.borderColor,
+                    color: AppColors.border,
                     fontWeight: FontWeight.w300,
                   ),
                   textAlign: TextAlign.center,

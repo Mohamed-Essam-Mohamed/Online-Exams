@@ -55,7 +55,7 @@ class AppDialog {
           ],
           title: Icon(
             Icons.warning_amber,
-            color: AppColors.redColor,
+            color: AppColors.red,
             size: 30.sp,
           ),
           content: Text(

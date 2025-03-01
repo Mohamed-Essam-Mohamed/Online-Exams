@@ -16,7 +16,7 @@ class MaterialButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: AppColors.primaryColor,
+      color: AppColors.primary,
       minWidth: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 14.h),
       shape: RoundedRectangleBorder(
@@ -25,7 +25,7 @@ class MaterialButtonWidget extends StatelessWidget {
       child: Text(
         title,
         style: AppTextStyles.size16CP.copyWith(
-          color: AppColors.scaffoldColor,
+          color: AppColors.scaffold,
         ),
       ),
     );

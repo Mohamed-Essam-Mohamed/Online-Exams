@@ -65,7 +65,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         ),
         hintText: widget.hintText,
         hintStyle: GoogleFonts.inter(
-          color: AppColors.greyColor,
+          color: AppColors.grey,
           fontSize: 16,
         ),
         contentPadding:

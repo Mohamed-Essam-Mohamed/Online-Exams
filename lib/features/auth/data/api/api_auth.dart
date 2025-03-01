@@ -10,6 +10,7 @@ import 'package:online_exams/features/auth/data/models/request/login_request.dar
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
+import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
 
 @lazySingleton
 class ApiAuth {
@@ -62,6 +63,22 @@ class ApiAuth {
       );
 
       return Success(ForgotPasswordResponse.fromJson(response));
+    } on ServerException catch (e) {
+      return Error(e.errorMessage.toString());
+    } on SocketException catch (e) {
+      return const Error("No Internet Connection");
+    } catch (e) {
+      return Error(e.toString());
+    }
+  }
+
+  Future<ApiResult<VerifyResponse>> verify(String resetCode) async {
+    try {
+      final response = await apiConsumer.post(
+        ApiConst.verifyResetCode,
+        data: {"resetCode": resetCode},
+      );
+      return Success(VerifyResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
     } on SocketException catch (e) {

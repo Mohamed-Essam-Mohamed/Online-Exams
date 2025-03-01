@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_exams/core/extensions/navigator_extention.dart';
 
 class ResetPassScreen extends StatelessWidget {
   static const String routeName = 'resetPass';
@@ -6,6 +7,16 @@ class ResetPassScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Password"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            context.pop();
+          },
+        ),
+      ),
+    );
   }
 }

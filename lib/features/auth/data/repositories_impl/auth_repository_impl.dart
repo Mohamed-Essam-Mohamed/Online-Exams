@@ -5,6 +5,7 @@ import 'package:online_exams/features/auth/data/models/request/login_request.dar
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
+import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
 import 'package:online_exams/features/auth/domain/repositories/auth_repository.dart';
 
 @Injectable(as: AuthRepository)
@@ -24,4 +25,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<ApiResult<ForgotPasswordResponse>> forgotPassword(
           String email) async =>
       await dataSource.forgotPassword(email);
+  @override
+  Future<ApiResult<VerifyResponse>> verify(String resetCode) async =>
+      await dataSource.verify(resetCode);
 }

@@ -28,7 +28,7 @@ class RichTextWidget extends StatelessWidget {
               child: Text(
                 subText,
                 style: AppTextStyles.size16CP.copyWith(
-                  color: AppColors.primaryColor,
+                  color: AppColors.primary,
                   decoration: TextDecoration.underline,
                 ),
               ),

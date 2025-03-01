@@ -19,6 +19,8 @@ import 'package:online_exams/features/auth/data/models/response/auth_response.da
     as _i6;
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart'
     as _i10;
+import 'package:online_exams/features/auth/data/models/response/verify_response.dart'
+    as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -123,4 +125,21 @@ class MockApiAuth extends _i1.Mock implements _i3.ApiAuth {
           ),
         )),
       ) as _i4.Future<_i5.ApiResult<_i10.ForgotPasswordResponse>>);
+
+  @override
+  _i4.Future<_i5.ApiResult<_i11.VerifyResponse>> verify(String? resetCode) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #verify,
+          [resetCode],
+        ),
+        returnValue: _i4.Future<_i5.ApiResult<_i11.VerifyResponse>>.value(
+            _i8.dummyValue<_i5.ApiResult<_i11.VerifyResponse>>(
+          this,
+          Invocation.method(
+            #verify,
+            [resetCode],
+          ),
+        )),
+      ) as _i4.Future<_i5.ApiResult<_i11.VerifyResponse>>);
 }

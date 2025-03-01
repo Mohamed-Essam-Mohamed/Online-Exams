@@ -32,14 +32,22 @@ class AppRoutes {
         );
       case ForgetPassScreen.routeName:
         return AnimationRoute(
-            page: BlocProvider(
-          create: (context) => getIt.get<ForgetPasswordCubit>(),
-          child: const ForgetPassScreen(),
-        ));
+          page: BlocProvider(
+            create: (context) => getIt.get<ForgetPasswordCubit>(),
+            child: const ForgetPassScreen(),
+          ),
+        );
       case EmailVerificationScreen.routeName:
-        return AnimationRoute(page: const EmailVerificationScreen());
+        return AnimationRoute(
+          page: BlocProvider.value(
+            value: arg as ForgetPasswordCubit,
+            child: const EmailVerificationScreen(),
+          ),
+        );
       case ResetPassScreen.routeName:
-        return AnimationRoute(page: const ResetPassScreen());
+        return AnimationRoute(
+          page: const ResetPassScreen(),
+        );
       case NavigationBarScreen.routeName:
         return AnimationRoute(page: const NavigationBarScreen());
 
