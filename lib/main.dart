@@ -15,11 +15,12 @@ void main() async {
   await SharedPreferencesUtils.init();
   final String routeName;
   var token = SharedPreferencesUtils.getData(key: PreferencesConst.token);
-  if (token != null) {
-    routeName = NavigationBarScreen.routeName;
-  } else {
-    routeName = LoginScreen.routeName;
-  }
+  // if (token != null) {
+  //   routeName = NavigationBarScreen.routeName;
+  // } else {
+  //   routeName = LoginScreen.routeName;
+  // }
+  routeName = LoginScreen.routeName;
 
   Bloc.observer = AppBlocObserver();
   await SystemChrome.setPreferredOrientations(

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:gap/gap.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
 import 'package:toastification/toastification.dart';
 
 import '../../../../core/extensions/navigator_extention.dart';
@@ -26,6 +27,8 @@ class EmailVerificationScreen extends StatefulWidget {
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Password"),
@@ -53,7 +56,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               Text(
                 "Please enter your code that send to your email address ",
                 style: AppTextStyles.size14CP.copyWith(
-                  color: AppColors.border,
+                  color: colorTheme.border,
                   fontWeight: FontWeight.w300,
                 ),
                 textAlign: TextAlign.center,
@@ -61,14 +64,14 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               Gap(32.h),
               VerificationCode(
                 textStyle: AppTextStyles.size16CP,
-                fillColor: AppColors.fillVerification,
+                fillColor: colorTheme.fillVerification,
                 // fullBorder: true,
                 margin: REdgeInsets.symmetric(horizontal: 3.w),
-                underlineColor: AppColors.primary,
-                underlineUnfocusedColor: AppColors.transparent,
+                underlineColor: colorTheme.primary,
+                underlineUnfocusedColor: colorTheme.transparent,
                 autofocus: true,
                 length: 6,
-                cursorColor: AppColors.primary,
+                cursorColor: colorTheme.primary,
                 onCompleted: (String value) async {
                   context
                       .read<ForgetPasswordCubit>()

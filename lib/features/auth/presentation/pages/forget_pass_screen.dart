@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
 import '../../../../core/app/function_validator.dart';
 import '../../../../core/common/widgets/material_button_widget.dart';
 import '../../../../core/common/widgets/text_form_feild_widget.dart';
@@ -27,6 +28,8 @@ class ForgetPassScreen extends StatefulWidget {
 class _ForgetPassScreenState extends State<ForgetPassScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Password"),
@@ -59,7 +62,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
                 Text(
                   "Please enter your email associated to your account",
                   style: AppTextStyles.size14CP.copyWith(
-                    color: AppColors.border,
+                    color: colorTheme.border,
                     fontWeight: FontWeight.w300,
                   ),
                   textAlign: TextAlign.center,

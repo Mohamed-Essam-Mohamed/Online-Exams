@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
 import '../../../../core/app/function_validator.dart';
 import '../../../../core/common/widgets/material_button_widget.dart';
 import '../../../../core/common/widgets/text_form_feild_widget.dart';
@@ -40,24 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Form(
           key: formKey,
           child: BlocListener<LoginCubit, LoginState>(
-            listener: (context, state) {
-              if (state.isLoading) {
-                AppDialog.showLoading(context: context, message: "Loading...");
-              }
-              if (state.isSuccess) {
-                context.pop();
-                context.pushNamedAndRemoveUntil(NavigationBarScreen.routeName);
-              }
-              if (state.isError) {
-                context.pop();
-                AppToast.showToast(
-                  context: context,
-                  title: "Error",
-                  description: state.errorMessage,
-                  type: ToastificationType.error,
-                );
-              }
-            },
+            listener: listenerLogin,
             child: Column(
               children: [
                 Gap(24.h),
@@ -108,6 +92,27 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //? listener
+  void listenerLogin(BuildContext context, LoginState state) {
+    if (state.isLoading) {
+      AppDialog.showLoading(context: context, message: "Loading...");
+    }
+    if (state.isSuccess) {
+      context.pop();
+      context.pushNamedAndRemoveUntil(NavigationBarScreen.routeName);
+    }
+    if (state.isError) {
+      context.pop();
+      AppToast.showToast(
+        context: context,
+        title: "Error",
+        description: state.errorMessage,
+        type: ToastificationType.error,
+      );
+    }
+  }
+
+  //? controller
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
   var formKey = GlobalKey<FormState>();

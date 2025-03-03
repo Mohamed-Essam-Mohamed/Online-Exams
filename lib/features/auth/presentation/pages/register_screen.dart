@@ -42,24 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Form(
           key: formKey,
           child: BlocListener<RegisterCubit, RegisterState>(
-            listener: (context, state) {
-              if (state.isLoading) {
-                AppDialog.showLoading(context: context, message: "Loading...");
-              }
-              if (state.isSuccess) {
-                context.pop();
-                context.pushNamedAndRemoveUntil(NavigationBarScreen.routeName);
-              }
-              if (state.isError) {
-                context.pop();
-                AppToast.showToast(
-                  context: context,
-                  title: "Error",
-                  description: state.errorMessage,
-                  type: ToastificationType.error,
-                );
-              }
-            },
+            listener: listenerRegister,
             child: Column(
               children: [
                 Gap(24.h),
@@ -167,7 +150,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  // controllers
+  void listenerRegister(BuildContext context, RegisterState state) {
+    if (state.isLoading) {
+      AppDialog.showLoading(context: context, message: "Loading...");
+    }
+    if (state.isSuccess) {
+      context.pop();
+      context.pushNamedAndRemoveUntil(NavigationBarScreen.routeName);
+    }
+    if (state.isError) {
+      context.pop();
+      AppToast.showToast(
+        context: context,
+        title: "Error",
+        description: state.errorMessage,
+        type: ToastificationType.error,
+      );
+    }
+  }
+
+  //? controllers
   late final TextEditingController userNameController;
   late final TextEditingController firstNameController;
   late final TextEditingController lastNameController;

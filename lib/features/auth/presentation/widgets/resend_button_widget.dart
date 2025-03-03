@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
@@ -56,6 +57,8 @@ class _ResendButtonWidgetState extends State<ResendButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -72,9 +75,9 @@ class _ResendButtonWidgetState extends State<ResendButtonWidget> {
           child: Text(
             _isResendAgain == true ? "Try again in $_start" : 'Resend',
             style: AppTextStyles.size16CP.copyWith(
-              color: AppColors.primary,
+              color: colorTheme.primary,
               decoration: TextDecoration.underline,
-              decorationColor: AppColors.primary,
+              decorationColor: colorTheme.primary,
             ),
           ),
         ),

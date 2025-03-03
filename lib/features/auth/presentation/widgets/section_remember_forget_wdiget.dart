@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
 import '../../../../core/extensions/navigator_extention.dart';
 import '../pages/forget_pass_screen.dart';
 
@@ -17,6 +18,8 @@ class _SectionRememberForgetState extends State<SectionRememberForget> {
 
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -43,7 +46,7 @@ class _SectionRememberForgetState extends State<SectionRememberForget> {
             "Forget password?",
             style: GoogleFonts.inter(
               decoration: TextDecoration.underline,
-              color: Colors.black,
+              color: colorTheme.black,
               fontSize: 15,
               fontWeight: FontWeight.w500,
             ),
