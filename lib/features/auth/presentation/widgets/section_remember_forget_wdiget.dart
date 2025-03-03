@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_exams/core/extensions/navigator_extention.dart';
-import 'package:online_exams/features/auth/presentation/pages/forget_pass_screen.dart';
+import '../../../../core/extensions/navigator_extention.dart';
+import '../pages/forget_pass_screen.dart';
 
 class SectionRememberForget extends StatefulWidget {
   const SectionRememberForget({

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:online_exams/core/api_helper/api_result/api_result.dart';
-import 'package:online_exams/features/auth/domain/repositories/auth_repository.dart';
+import '../../../../core/api_helper/api_result/api_result.dart';
+import '../repositories/auth_repository.dart';
 
 import '../../data/models/response/verify_response.dart';
 

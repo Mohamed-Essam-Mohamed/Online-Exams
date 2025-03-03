@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exams/core/api_helper/api_consumer/api_consumer.dart';
-import 'package:online_exams/core/constant/api_const.dart';
+
+import '../../constant/api_const.dart';
+import 'api_consumer.dart';
 
 @LazySingleton(as: ApiConsumer)
 class DioConsumer implements ApiConsumer {

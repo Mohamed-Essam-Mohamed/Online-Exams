@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:online_exams/core/app/function_validator.dart';
-import 'package:online_exams/core/common/widgets/material_button_widget.dart';
-import 'package:online_exams/core/common/widgets/text_form_feild_widget.dart';
-import 'package:online_exams/core/extensions/navigator_extention.dart';
-import 'package:online_exams/core/utils/app_dailog.dart';
-import 'package:online_exams/core/utils/app_toast.dart';
-import 'package:online_exams/features/auth/data/models/request/register_request.dart';
-import 'package:online_exams/features/auth/presentation/blocs/register/register_cubit.dart';
-import 'package:online_exams/features/auth/presentation/widgets/rich_text_widget.dart';
-import 'package:online_exams/navigation_bar/navigation_bar_screen.dart';
+import '../../../../core/app/function_validator.dart';
+import '../../../../core/common/widgets/material_button_widget.dart';
+import '../../../../core/common/widgets/text_form_feild_widget.dart';
+import '../../../../core/extensions/navigator_extention.dart';
+import '../../../../core/utils/app_dailog.dart';
+import '../../../../core/utils/app_toast.dart';
+import '../../data/models/request/register_request.dart';
+import '../blocs/register/register_cubit.dart';
+import '../widgets/rich_text_widget.dart';
+import '../../../../navigation_bar/navigation_bar_screen.dart';
 import 'package:toastification/toastification.dart';
 
 class RegisterScreen extends StatefulWidget {

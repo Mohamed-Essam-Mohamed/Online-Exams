@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_exams/core/app/bloc_observer.dart';
-import 'package:online_exams/core/app/di/service_locator.dart';
-import 'package:online_exams/core/constant/preferences_const.dart';
-import 'package:online_exams/core/utils/app_shared_preference.dart';
-import 'package:online_exams/features/auth/presentation/pages/login_screen.dart';
-import 'package:online_exams/navigation_bar/navigation_bar_screen.dart';
-import 'package:online_exams/online_exams.dart';
+import 'core/app/bloc_observer.dart';
+import 'core/app/di/service_locator.dart';
+import 'core/constant/preferences_const.dart';
+import 'core/utils/app_shared_preference.dart';
+import 'features/auth/presentation/pages/login_screen.dart';
+import 'navigation_bar/navigation_bar_screen.dart';
+import 'online_exams.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

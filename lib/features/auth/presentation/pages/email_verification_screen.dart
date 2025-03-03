@@ -3,15 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:gap/gap.dart';
-import 'package:online_exams/core/extensions/navigator_extention.dart';
-import 'package:online_exams/core/utils/app_colors.dart';
-import 'package:online_exams/core/utils/app_dailog.dart';
-import 'package:online_exams/core/utils/app_text_style.dart';
-import 'package:online_exams/core/utils/app_toast.dart';
-import 'package:online_exams/features/auth/presentation/blocs/forgetpassword/forget_password_cubit.dart';
-import 'package:online_exams/features/auth/presentation/pages/reset_pass_screen.dart';
-import 'package:online_exams/features/auth/presentation/widgets/resend_button_widget.dart';
 import 'package:toastification/toastification.dart';
+
+import '../../../../core/extensions/navigator_extention.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_dailog.dart';
+import '../../../../core/utils/app_text_style.dart';
+import '../../../../core/utils/app_toast.dart';
+import '../blocs/forgetpassword/forget_password_cubit.dart';
+import '../widgets/resend_button_widget.dart';
+import 'reset_pass_screen.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   static const String routeName = 'email-verification';

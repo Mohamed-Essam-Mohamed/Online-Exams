@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:online_exams/core/app/function_validator.dart';
-import 'package:online_exams/core/common/widgets/material_button_widget.dart';
-import 'package:online_exams/core/common/widgets/text_form_feild_widget.dart';
-import 'package:online_exams/core/extensions/navigator_extention.dart';
-import 'package:online_exams/core/utils/app_colors.dart';
-import 'package:online_exams/core/utils/app_dailog.dart';
-import 'package:online_exams/core/utils/app_text_style.dart';
-import 'package:online_exams/core/utils/app_toast.dart';
-import 'package:online_exams/features/auth/presentation/blocs/forgetpassword/forget_password_cubit.dart';
-import 'package:online_exams/features/auth/presentation/pages/email_verification_screen.dart';
+import '../../../../core/app/function_validator.dart';
+import '../../../../core/common/widgets/material_button_widget.dart';
+import '../../../../core/common/widgets/text_form_feild_widget.dart';
+import '../../../../core/extensions/navigator_extention.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_dailog.dart';
+import '../../../../core/utils/app_text_style.dart';
+import '../../../../core/utils/app_toast.dart';
+import '../blocs/forgetpassword/forget_password_cubit.dart';
+import 'email_verification_screen.dart';
 import 'package:toastification/toastification.dart';
 
 class ForgetPassScreen extends StatefulWidget {

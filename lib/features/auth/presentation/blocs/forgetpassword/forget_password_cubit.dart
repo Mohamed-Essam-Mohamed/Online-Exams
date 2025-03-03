@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exams/core/api_helper/api_result/api_result.dart';
-import 'package:online_exams/core/enums/status.dart';
-import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
-import 'package:online_exams/features/auth/data/models/response/rest_password_response.dart';
-import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
-import 'package:online_exams/features/auth/domain/use_cases/forget_password_use_case.dart';
-import 'package:online_exams/features/auth/domain/use_cases/rest_password_use_case.dart';
-import 'package:online_exams/features/auth/domain/use_cases/verify_code_use_case.dart';
+import '../../../../../core/api_helper/api_result/api_result.dart';
+import '../../../../../core/enums/status.dart';
+import '../../../data/models/response/forgot_password_response.dart';
+import '../../../data/models/response/rest_password_response.dart';
+import '../../../data/models/response/verify_response.dart';
+import '../../../domain/use_cases/forget_password_use_case.dart';
+import '../../../domain/use_cases/rest_password_use_case.dart';
+import '../../../domain/use_cases/verify_code_use_case.dart';
 
 part 'forget_password_state.dart';
 

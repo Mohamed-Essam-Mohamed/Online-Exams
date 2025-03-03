@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_exams/core/utils/app_colors.dart';
-import 'package:online_exams/core/utils/app_text_style.dart';
 import 'package:toastification/toastification.dart';
+
+import 'app_colors.dart';
+import 'app_text_style.dart';
 
 abstract class AppToast {
   static void showToast({
