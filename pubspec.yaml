@@ -51,6 +51,8 @@ dependencies:
   json_serializable: ^6.9.0
   equatable: ^2.0.7
   regexpattern: ^2.6.0
+  mockito: ^5.4.4
+  flutter_verification_code: ^1.1.7
   
 
 dev_dependencies:

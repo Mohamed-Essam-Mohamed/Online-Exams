@@ -1,22 +1,24 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exams/core/api_helper/api_consumer/api_consumer.dart';
-import 'package:online_exams/core/constant/api_const.dart';
+
+import '../../constant/api_const.dart';
+import 'api_consumer.dart';
 
 @LazySingleton(as: ApiConsumer)
 class DioConsumer implements ApiConsumer {
   late Dio dio;
+
   DioConsumer() {
     dio = Dio();
     dio.options.baseUrl = ApiConst.baseUrl;
-    dio.interceptors.add(LogInterceptor(
-      request: true,
-      requestHeader: true,
-      requestBody: true,
-      responseHeader: true,
-      responseBody: true,
-      error: true,
-    )); // print status api in consol
+    // dio.interceptors.add(LogInterceptor(
+    //   request: true,
+    //   requestHeader: true,
+    //   requestBody: true,
+    //   responseHeader: true,
+    //   responseBody: true,
+    //   error: true,
+    // )); // print status api in consol
   }
   @override
   Future get(
@@ -84,6 +86,23 @@ class DioConsumer implements ApiConsumer {
   }) async {
     try {
       final response = await dio.delete(
+        path,
+        data: isFormData ? FormData.fromMap(data) : data,
+        queryParameters: queryParameters,
+      );
+      return response.data;
+    } on DioException catch (e) {
+      handleDioExceptions(e);
+    }
+  }
+
+  @override
+  Future put(String path,
+      {data,
+      Map<String, dynamic>? queryParameters,
+      bool isFormData = false}) async {
+    try {
+      final response = await dio.put(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,

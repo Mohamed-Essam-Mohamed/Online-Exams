@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exams/core/api_helper/api_result/api_result.dart';
-import 'package:online_exams/core/enums/status.dart';
-import 'package:online_exams/features/auth/data/models/request/login_request.dart';
-import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
-import 'package:online_exams/features/auth/domain/use_cases/login_use_case.dart';
+import '../../../../../core/api_helper/api_result/api_result.dart';
+import '../../../../../core/enums/status.dart';
+import '../../../data/models/request/login_request.dart';
+import '../../../data/models/response/auth_response.dart';
+import '../../../domain/use_cases/login_use_case.dart';
 
 part 'login_state.dart';
 

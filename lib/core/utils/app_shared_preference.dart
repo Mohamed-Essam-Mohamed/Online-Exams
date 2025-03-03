@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../features/auth/data/models/response/auth_response.dart';
 
 class SharedPreferencesUtils {
   static late SharedPreferences sharedPreferences;
