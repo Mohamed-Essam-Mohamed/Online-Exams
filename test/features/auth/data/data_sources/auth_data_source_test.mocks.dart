@@ -19,6 +19,8 @@ import 'package:online_exams/features/auth/data/models/response/auth_response.da
     as _i6;
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart'
     as _i10;
+import 'package:online_exams/features/auth/data/models/response/rest_password_response.dart'
+    as _i12;
 import 'package:online_exams/features/auth/data/models/response/verify_response.dart'
     as _i11;
 
@@ -142,4 +144,32 @@ class MockApiAuth extends _i1.Mock implements _i3.ApiAuth {
           ),
         )),
       ) as _i4.Future<_i5.ApiResult<_i11.VerifyResponse>>);
+
+  @override
+  _i4.Future<_i5.ApiResult<_i12.RestPasswordResponse>> restPassword({
+    required String? email,
+    required String? newPassword,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #restPassword,
+          [],
+          {
+            #email: email,
+            #newPassword: newPassword,
+          },
+        ),
+        returnValue: _i4.Future<_i5.ApiResult<_i12.RestPasswordResponse>>.value(
+            _i8.dummyValue<_i5.ApiResult<_i12.RestPasswordResponse>>(
+          this,
+          Invocation.method(
+            #restPassword,
+            [],
+            {
+              #email: email,
+              #newPassword: newPassword,
+            },
+          ),
+        )),
+      ) as _i4.Future<_i5.ApiResult<_i12.RestPasswordResponse>>);
 }

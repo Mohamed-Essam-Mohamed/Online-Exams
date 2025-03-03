@@ -46,7 +46,10 @@ class AppRoutes {
         );
       case ResetPassScreen.routeName:
         return AnimationRoute(
-          page: const ResetPassScreen(),
+          page: BlocProvider.value(
+            value: arg as ForgetPasswordCubit,
+            child: const ResetPassScreen(),
+          ),
         );
       case NavigationBarScreen.routeName:
         return AnimationRoute(page: const NavigationBarScreen());

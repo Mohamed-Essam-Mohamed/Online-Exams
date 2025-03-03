@@ -49,6 +49,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               context.pop();
               context.pushNamed(
                 ResetPassScreen.routeName,
+                arguments: context.read<ForgetPasswordCubit>(),
               );
             }
             if (state.isSendCodeError) {

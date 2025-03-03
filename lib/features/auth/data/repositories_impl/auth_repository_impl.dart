@@ -5,6 +5,7 @@ import 'package:online_exams/features/auth/data/models/request/login_request.dar
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
+import 'package:online_exams/features/auth/data/models/response/rest_password_response.dart';
 import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
 import 'package:online_exams/features/auth/domain/repositories/auth_repository.dart';
 
@@ -28,4 +29,8 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<ApiResult<VerifyResponse>> verify(String resetCode) async =>
       await dataSource.verify(resetCode);
+  @override
+  Future<ApiResult<RestPasswordResponse>> restPassword(
+          {required String email, required String newPassword}) async =>
+      await dataSource.restPassword(email: email, newPassword: newPassword);
 }

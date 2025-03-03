@@ -5,6 +5,7 @@ import 'package:online_exams/features/auth/data/models/request/login_request.dar
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
+import 'package:online_exams/features/auth/data/models/response/rest_password_response.dart';
 import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
 
 @injectable
@@ -24,4 +25,8 @@ class AuthDataSource {
 
   Future<ApiResult<VerifyResponse>> verify(String resetCode) async =>
       await api.verify(resetCode);
+
+  Future<ApiResult<RestPasswordResponse>> restPassword(
+          {required String email, required String newPassword}) async =>
+      await api.restPassword(email: email, newPassword: newPassword);
 }

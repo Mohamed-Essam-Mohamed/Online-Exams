@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:injectable/injectable.dart';
@@ -10,7 +11,10 @@ import 'package:online_exams/features/auth/data/models/request/login_request.dar
 import 'package:online_exams/features/auth/data/models/request/register_request.dart';
 import 'package:online_exams/features/auth/data/models/response/auth_response.dart';
 import 'package:online_exams/features/auth/data/models/response/forgot_password_response.dart';
+import 'package:online_exams/features/auth/data/models/response/rest_password_response.dart';
 import 'package:online_exams/features/auth/data/models/response/verify_response.dart';
+
+import '../../../../core/constant/preferences_const.dart';
 
 @lazySingleton
 class ApiAuth {
@@ -26,7 +30,8 @@ class ApiAuth {
       );
       await SharedPreferencesUtils.saveDataUserPref(
           AuthResponse.fromJson(response));
-
+      await SharedPreferencesUtils.saveData(
+          key: PreferencesConst.token, value: response['token']);
       return Success(AuthResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
@@ -45,6 +50,8 @@ class ApiAuth {
       );
       await SharedPreferencesUtils.saveDataUserPref(
           AuthResponse.fromJson(response));
+      await SharedPreferencesUtils.saveData(
+          key: PreferencesConst.token, value: response['token']);
       return Success(AuthResponse.fromJson(response));
     } on ServerException catch (e) {
       return Error(e.errorMessage.toString());
@@ -84,6 +91,26 @@ class ApiAuth {
     } on SocketException catch (e) {
       return const Error("No Internet Connection");
     } catch (e) {
+      return Error(e.toString());
+    }
+  }
+
+  Future<ApiResult<RestPasswordResponse>> restPassword(
+      {required String email, required String newPassword}) async {
+    try {
+      final response = await apiConsumer.put(
+        ApiConst.resetPassword,
+        data: {"email": email, "newPassword": newPassword},
+      );
+      await SharedPreferencesUtils.saveData(
+          key: PreferencesConst.token, value: response['token']);
+      return Success(RestPasswordResponse.fromJson(response));
+    } on ServerException catch (e) {
+      return Error(e.errorMessage.toString());
+    } on SocketException catch (e) {
+      return const Error("No Internet Connection");
+    } catch (e) {
+      log(e.toString());
       return Error(e.toString());
     }
   }
