@@ -45,30 +45,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
             listenWhen: (previous, current) {
               return previous != current;
             },
-            listener: (context, state) {
-              if (state.isSendEmailLoading) {
-                log("work loading");
-                AppDialog.showLoading(context: context, message: "Loading...");
-              }
-              if (state.isSendEmailSuccess) {
-                log("work success");
-                context.pop();
-                context.pushNamed(
-                  EmailVerificationScreen.routeName,
-                  arguments: context.read<ForgetPasswordCubit>(),
-                );
-              }
-              if (state.isSendEmailError) {
-                log("work error");
-                context.pop();
-                AppToast.showToast(
-                  context: context,
-                  title: "Error",
-                  description: state.errorMessage,
-                  type: ToastificationType.error,
-                );
-              }
-            },
+            listener: listenerForgetPassword,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -113,6 +90,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
     );
   }
 
+  //? controller
   late final TextEditingController emailController;
   var formKey = GlobalKey<FormState>();
   @override
@@ -125,5 +103,28 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
   void dispose() {
     emailController.dispose();
     super.dispose();
+  }
+
+  //? listener forget password cubit
+  void listenerForgetPassword(BuildContext context, ForgetPasswordState state) {
+    if (state.isSendEmailLoading) {
+      AppDialog.showLoading(context: context, message: "Loading...");
+    }
+    if (state.isSendEmailSuccess) {
+      context.pop();
+      context.pushNamed(
+        EmailVerificationScreen.routeName,
+        arguments: context.read<ForgetPasswordCubit>(),
+      );
+    }
+    if (state.isSendEmailError) {
+      context.pop();
+      AppToast.showToast(
+        context: context,
+        title: "Error",
+        description: state.errorMessage,
+        type: ToastificationType.error,
+      );
+    }
   }
 }

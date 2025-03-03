@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_exams/core/utils/app_colors.dart';
+import 'package:online_exams/core/utils/app_text_style.dart';
 import 'package:toastification/toastification.dart';
 
 abstract class AppToast {
@@ -11,10 +13,23 @@ abstract class AppToast {
     toastification.show(
       context: context,
       type: type,
-      title: Text(title),
-      description: Text(description),
-      primaryColor: Colors.white,
-      autoCloseDuration: const Duration(seconds: 3),
+      title: Text(
+        title,
+        style: AppTextStyles.size14CP
+            .copyWith(fontWeight: FontWeight.bold, color: AppColors.scaffold),
+      ),
+      description: Text(
+        description,
+        style: AppTextStyles.size14CP.copyWith(
+          fontWeight: FontWeight.w300,
+          color: AppColors.scaffold,
+          fontSize: 12,
+        ),
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+      ),
+      primaryColor: AppColors.primary,
+      autoCloseDuration: const Duration(seconds: 4),
       progressBarTheme: ProgressIndicatorThemeData(
         color: type == ToastificationType.success
             ? Colors.green

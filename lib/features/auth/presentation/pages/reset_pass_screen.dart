@@ -38,26 +38,7 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         child: BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
-          listener: (context, state) {
-            if (state.isResetPasswordLoading) {
-              AppDialog.showLoading(context: context, message: "Loading...");
-            }
-            if (state.isResetPasswordSuccess) {
-              context.pop();
-              context.pushNamed(
-                NavigationBarScreen.routeName,
-              );
-            }
-            if (state.isResetPasswordError) {
-              context.pop();
-              AppToast.showToast(
-                context: context,
-                title: "Error",
-                description: state.errorMessage,
-                type: ToastificationType.error,
-              );
-            }
-          },
+          listener: listenerResetPassword,
           child: Form(
             key: formKey,
             child: Column(
@@ -115,6 +96,7 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
     );
   }
 
+  //? controller
   late final TextEditingController passwordController;
   late final TextEditingController confirmPasswordController;
   var formKey = GlobalKey<FormState>();
@@ -131,5 +113,27 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
     passwordController.dispose();
     confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  //? listener
+  void listenerResetPassword(BuildContext context, ForgetPasswordState state) {
+    if (state.isResetPasswordLoading) {
+      AppDialog.showLoading(context: context, message: "Loading...");
+    }
+    if (state.isResetPasswordSuccess) {
+      context.pop();
+      context.pushNamedAndRemoveUntil(
+        NavigationBarScreen.routeName,
+      );
+    }
+    if (state.isResetPasswordError) {
+      context.pop();
+      AppToast.showToast(
+        context: context,
+        title: "Error",
+        description: state.errorMessage,
+        type: ToastificationType.error,
+      );
+    }
   }
 }

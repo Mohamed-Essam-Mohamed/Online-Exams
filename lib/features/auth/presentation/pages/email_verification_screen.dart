@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,27 +38,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         child: BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
-          listener: (context, state) {
-            if (state.isSendCodeLoading) {
-              AppDialog.showLoading(context: context, message: "Loading...");
-            }
-            if (state.isSendCodeSuccess) {
-              context.pop();
-              context.pushNamed(
-                ResetPassScreen.routeName,
-                arguments: context.read<ForgetPasswordCubit>(),
-              );
-            }
-            if (state.isSendCodeError) {
-              context.pop();
-              AppToast.showToast(
-                context: context,
-                title: "Error",
-                description: state.errorMessage,
-                type: ToastificationType.error,
-              );
-            }
-          },
+          listener: listenerEmailVerification,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -99,17 +76,41 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 onEditing: (bool value) {},
               ),
               Gap(24.h),
-              // ResendButtonWidget(
-              //   resendFunction: () async {
-              //     // context
-              //     //     .read<ForgetPasswordCubit>()
-              //     //     .forgetPassword(email: state.email);
-              //   },
-              // ),
+              ResendButtonWidget(
+                resendFunction: () async {
+                  // context
+                  //     .read<ForgetPasswordCubit>()
+                  //     .forgetPassword(email: state.email);
+                },
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  //? listener
+  void listenerEmailVerification(
+      BuildContext context, ForgetPasswordState state) {
+    if (state.isSendCodeLoading) {
+      AppDialog.showLoading(context: context, message: "Loading...");
+    }
+    if (state.isSendCodeSuccess) {
+      context.pop();
+      context.pushNamed(
+        ResetPassScreen.routeName,
+        arguments: context.read<ForgetPasswordCubit>(),
+      );
+    }
+    if (state.isSendCodeError) {
+      context.pop();
+      AppToast.showToast(
+        context: context,
+        title: "Error",
+        description: state.errorMessage,
+        type: ToastificationType.error,
+      );
+    }
   }
 }
