@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_exams/core/routes/app_routes.dart';
-import 'package:online_exams/core/utils/app_light_theme.dart';
+import 'core/routes/app_routes.dart';
+import 'core/utils/app_light_theme.dart';
 
 class OnlineExams extends StatelessWidget {
   const OnlineExams({super.key, required this.routeName});

@@ -4,9 +4,9 @@ part 'login_request.g.dart';
 
 @JsonSerializable()
 class LoginRequest {
-  final String email;
-  final String password;
-  LoginRequest(this.email, this.password);
+  final String? email;
+  final String? password;
+  LoginRequest({this.email, this.password});
 
   Map<String, dynamic> toJson() => _$LoginRequestToJson(this);
 }

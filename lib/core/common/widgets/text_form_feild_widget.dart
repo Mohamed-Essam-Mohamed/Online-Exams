@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_exams/core/utils/app_colors.dart';
-import 'package:online_exams/features/auth/presentation/pages/register_screen.dart';
+import 'package:online_exams/core/utils/app_light_theme.dart';
+
+import '../../utils/app_colors.dart';
 
 typedef Validator = String? Function(String?);
 
@@ -33,11 +34,13 @@ class TextFormFieldWidget extends StatefulWidget {
 class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return TextFormField(
       style: GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.black,
+        color: colorTheme.black,
       ),
       obscureText: widget.obscureText,
       decoration: InputDecoration(
@@ -45,7 +48,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
             ? IconButton(
                 icon: Icon(
                   widget.obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: const Color(0xff454A4F),
+                  color: colorTheme.blackIcon,
                   size: 24,
                 ),
                 onPressed: () {
@@ -58,38 +61,11 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
               )
             : null,
         labelText: widget.label,
-        labelStyle: GoogleFonts.inter(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: Colors.black,
-        ),
         hintText: widget.hintText,
-        hintStyle: GoogleFonts.inter(
-          color: AppColors.greyColor,
-          fontSize: 16,
-        ),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 17),
-        enabledBorder:
-            outlineInputBorder(color: Colors.black, radius: 8.r, width: 1),
-        focusedBorder:
-            outlineInputBorder(color: Colors.black, radius: 10, width: 1),
-        errorBorder:
-            outlineInputBorder(color: Colors.red, radius: 10, width: 1),
-        focusedErrorBorder:
-            outlineInputBorder(color: Colors.red, radius: 10, width: 1),
       ),
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       validator: widget.validator,
-    );
-  }
-
-  OutlineInputBorder outlineInputBorder(
-      {required double radius, required Color color, required double width}) {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(radius),
-      borderSide: BorderSide(color: color, width: width),
     );
   }
 }
