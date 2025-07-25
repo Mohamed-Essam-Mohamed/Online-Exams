@@ -47,6 +47,7 @@ and track progress over time.
 | **Testing & Linting**  | `flutter_test`, `flutter_lints` |
 
 ## UI APP
+<img width="1920" height="1080" alt="Fit" src="https://github.com/user-attachments/assets/903a8919-362e-4988-b873-fae6b852779b" />
 
 
 
@@ -63,3 +64,5 @@ https://github.com/user-attachments/assets/a07b1dff-0e94-4aea-ae89-01e532524256
 > [🔗 Download the latest APK release](https://drive.google.com/file/d/1RmV64NSriGxcGgCrLUrUFMeowdNhRnpV/view?usp=sharing)  
 *(You can host this on Firebase App Distribution, GitHub Releases, or any public URL.)*
 
+- Contributions are welcome 💜
+- If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request.
